@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "214278977900",
+    "project_id": "crucial-mender-364220",
+    "storage_bucket": "crucial-mender-364220.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214278977900:android:e01c111a61c69447035b49",
+        "android_client_info": {
+          "package_name": "com.pushpendra.canapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214278977900-ir88sp64slv2e78johk8ojr7rh9h0e7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pushpendra.canapp",
+            "certificate_hash": "8fd7d1b7bef30e9394cf6fbc66e41cbd11606015"
+          }
+        },
+        {
+          "client_id": "214278977900-7o8ks4t01v0hvjfv3ihfcijof9vt8l3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD4ZNLgxph88WibVRrarwOKuj1Nems1Bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214278977900-7o8ks4t01v0hvjfv3ihfcijof9vt8l3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/main_item_squares"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/main_vertical_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/main_item_squares"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/main_item_squares" />
+
+        <TextView
+            android:id="@+id/main_vertical_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/outfit_medium"
+            android:text="Product Name"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/main_vertical_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/main_vertical_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/outfit_medium"
+            android:text="Rs.50"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/main_vertical_Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/main_vertical_Name"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/main_vertical_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:alpha="0.5"
+            android:fontFamily="@font/outfit_medium"
+            android:hint="Burger with Extra Cheese"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/main_vertical_Name"
+            app:layout_constraintTop_toBottomOf="@+id/main_vertical_Name" />
+
+        <TextView
+            android:id="@+id/main_vertical_timing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/outfit_medium"
+            android:text="10:00 - 15:00 min"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/main_vertical_description"
+            app:layout_constraintTop_toBottomOf="@+id/main_vertical_description" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="85dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/main_vertical_item_add_item_background"
+            app:layout_constraintBottom_toBottomOf="@+id/main_vertical_timing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/main_vertical_timing"
+            app:layout_constraintTop_toTopOf="@+id/main_vertical_timing"
+            app:layout_constraintVertical_bias="0.39">
+
+            <ImageView
+                android:id="@+id/main_vertical_item_minus_button"
+                android:layout_width="29dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.545"
+                app:srcCompat="@drawable/main_vertical_item_square_minus" />
+
+            <TextView
+                android:id="@+id/main_vertical_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:fontFamily="@font/outfit_medium"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/main_vertical_item_minus_button"
+                app:layout_constraintEnd_toStartOf="@+id/main_vertical_item_minus_button"
+                app:layout_constraintHorizontal_bias="0.75"
+                app:layout_constraintStart_toEndOf="@+id/main_vertical_add_buttton"
+                app:layout_constraintTop_toTopOf="@+id/main_vertical_item_minus_button" />
+
+            <ImageView
+                android:id="@+id/main_vertical_add_buttton"
+                android:layout_width="29dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/main_vertical_item_minus_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/main_vertical_item_minus_button"
+                app:srcCompat="@drawable/main_vertical_item_square_plus" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
