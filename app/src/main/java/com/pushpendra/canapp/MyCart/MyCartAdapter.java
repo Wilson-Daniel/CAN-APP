@@ -34,14 +34,14 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyCartAdapter.ViewHolder holder, int position) {
-        holder.mycart_name.setText(cartlist.get(position).getName());
-        holder.mycart_price.setText(cartlist.get(position).getPrice());
-        holder.mycart_quantity.setText(cartlist.get(position).getQuantity());
-        try{
-            Picasso.get().load(cartlist.get(position).getImage()).into(holder.mycart_imageView);
-        }catch(Exception e){
-
-        }
+//        holder.mycart_name.setText(cartlist.get(position).getName());
+//        holder.mycart_price.setText(cartlist.get(position).getPrice());
+//        holder.mycart_quantity.setText(cartlist.get(position).getQuantity());
+//        try{
+//            Picasso.get().load(cartlist.get(position).getImage()).into(holder.mycart_imageView);
+//        }catch(Exception e){
+//
+//        }
 
     }
 

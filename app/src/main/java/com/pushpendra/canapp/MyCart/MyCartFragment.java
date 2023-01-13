@@ -7,11 +7,16 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.pushpendra.canapp.DATABASE.AppDatabase;
+import com.pushpendra.canapp.DATABASE.Product;
+import com.pushpendra.canapp.DATABASE.ProductDao;
 import com.pushpendra.canapp.R;
 
 import java.util.ArrayList;
@@ -27,9 +32,8 @@ public class MyCartFragment extends Fragment {
     MyCartAdapter myCartAdapter;
     RecyclerView myCartRecyclerview;
 
-    public MyCartFragment() {
-        // Required empty public constructor
-    }
+    TextView priceTotal;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,18 +42,30 @@ public class MyCartFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_my_cart, container, false);
 
+        priceTotal = view.findViewById(R.id.mycart_textview_totalprice);
+
+        AppDatabase db = Room.databaseBuilder(getContext(), AppDatabase.class,"cart_db").allowMainThreadQueries().build();
+        ProductDao productDao = db.ProductDao();
+
         myCartRecyclerview = view.findViewById(R.id.frag_mycar_recyclerview);
-        myCartRecyclerview.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        myCartRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        myCartRecyclerview.setLayoutManager(linearLayoutManager);
+        List<Product> product = productDao.getallproduct();
 
-        modellist = new ArrayList<>();
+//        MyCartAdapter adapter = new MyCartAdapter(product,priceTotal);
+//        myCartRecyclerview.setAdapter(adapter);
+
+        int sum=0;
+        for(int i=0; i<product.size(); i++){
+            sum+=(product.get(i).getPrice()*product.get(i).getQnt());
+        }
+        //priceTotal.setText(String.valueOf(sum));
         //getcartItems();
         return view;
 
     }
+
+
 
 //    private void getcartItems() {
 //        EasyDB easyDB = EasyDB.init(getContext(),"ITEM_DB")
