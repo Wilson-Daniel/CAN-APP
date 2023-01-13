@@ -36,7 +36,9 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment implements UpdateVerticalRec{
     FragmentHomeBinding binding;
     ConstraintLayout custConstraint;
+    ///////////RECCYCLERVIEWS////////////////////
     RecyclerView mainHorizontalRecycler,mainVerticalRecycler;
+    ////////////////////////////////////////////
 
     //////////HORIZONTAL RECYCLERVIEW//////////
     ArrayList<MainHorModel> mainHorModelList;
@@ -52,7 +54,10 @@ public class HomeFragment extends Fragment implements UpdateVerticalRec{
     FirebaseAuth mAuth;
     FirebaseStorage storage;
     ///////////////////////////////////////////
+
+    /////////////FIREBASEDATABASE/////////////
     private DatabaseReference database,db2;
+    ///////////////////////////////////////////
 
     public HomeFragment() {
         // Required empty public constructor
@@ -72,14 +77,6 @@ public class HomeFragment extends Fragment implements UpdateVerticalRec{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        //custConstraint = findViewById(R.id.main_customer_constraintLayout);
-//        //custConstraint.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//
-//            }
-//        });
 
         ////////////HORIZONTAL RECYCLERVIEW///////////////////////////////////
         mainHorizontalRecycler = view.findViewById(R.id.main_hor_recyclerview);
@@ -96,24 +93,7 @@ public class HomeFragment extends Fragment implements UpdateVerticalRec{
         mainHorizontalRecycler.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
         mainHorizontalRecycler.setHasFixedSize(true);
         mainHorizontalRecycler.setNestedScrollingEnabled(false);
-        ///////////////////////////////////////////////////////////////////////
-
-//        database = FirebaseDatabase.getInstance().getReference().child("Burger");
-//        database.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-//                    DishesData user = dataSnapshot.getValue(DishesData.class);
-//                    mainVerModelList.add(user);
-//                }
-//                mainVerAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                error.getMessage();
-//            }
-//        });
+        ////////////////////////////////////////////////////////////////////////
 
         ///////////VERTICAL RECYCLERVIEW////////////////////////////////////////
         mainVerticalRecycler = view.findViewById(R.id.main_ver_recyclerview);
@@ -122,22 +102,6 @@ public class HomeFragment extends Fragment implements UpdateVerticalRec{
         mainVerticalRecycler.setAdapter(mainVerAdapter);
         mainVerticalRecycler.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false));
 
-//        database = FirebaseDatabase.getInstance().getReference("Dishes").child("Burger");
-//        database.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-//                    DishesData user = dataSnapshot.getValue(DishesData.class);
-//                    mainVerModelList.add(user);
-//                }
-//                mainVerAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                error.getMessage();
-//            }
-//        });
 
 
 
