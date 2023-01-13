@@ -1,5 +1,7 @@
 package com.pushpendra.canapp.Adapter;
 
+import static com.pushpendra.canapp.R.drawable.burger;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -45,9 +47,9 @@ public class MainHorAdapter extends RecyclerView.Adapter<MainHorAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.imageView.setImageResource(list.get(position).getImage());
         holder.name.setText(list.get(position).getName());
+
         if(check){
             ArrayList<MainVerModel> mainVerModels = new ArrayList<>();
-
             mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger","10:00 - 15:00 min","Rs.50","Aloo Burger"));
             mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger1","10:00 - 15:00 min","Rs.50","Aloo Burger"));
             mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger2","10:00 - 15:00 min","Rs.50","Aloo Burger"));
@@ -73,33 +75,25 @@ public class MainHorAdapter extends RecyclerView.Adapter<MainHorAdapter.ViewHold
                     ArrayList<MainVerModel> mainVerModels = new ArrayList<>();
 
                     mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger1","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger2","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
+
 
                     updateVerticalRec.callBack(position,mainVerModels);
                 }else if(position == 1){
                     ArrayList<MainVerModel> mainVerModels = new ArrayList<>();
                     mainVerModels.add(new MainVerModel(R.drawable.frappe,"Burger","10:00 - 15:00 min","Rs.50","Aloo Burger"));
                     mainVerModels.add(new MainVerModel(R.drawable.frappe,"Burger1","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger2","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
+
 
                     updateVerticalRec.callBack(position,mainVerModels);
-                }else if(position == 1){
+                }else if(position == 2){
                     ArrayList<MainVerModel> mainVerModels = new ArrayList<>();
                     mainVerModels.add(new MainVerModel(R.drawable.cutlery,"Burger","10:00 - 15:00 min","Rs.50","Aloo Burger"));
                     mainVerModels.add(new MainVerModel(R.drawable.frappe,"Burger1","10:00 - 15:00 min","Rs.50","Aloo Burger"));
                     mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger2","10:00 - 15:00 min","Rs.50","Aloo Burger"));
-                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
+
 
                     updateVerticalRec.callBack(position,mainVerModels);
-                }else if(position == 2){
+                }else if(position == 3){
                     ArrayList<MainVerModel> mainVerModels = new ArrayList<>();
                     mainVerModels.add(new MainVerModel(R.drawable.toaster,"Burger","10:00 - 15:00 min","Rs.50","Aloo Burger"));
                     mainVerModels.add(new MainVerModel(R.drawable.frappe,"Burger1","10:00 - 15:00 min","Rs.50","Aloo Burger"));
@@ -107,11 +101,12 @@ public class MainHorAdapter extends RecyclerView.Adapter<MainHorAdapter.ViewHold
                     mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
 
                     updateVerticalRec.callBack(position,mainVerModels);
-                }else if(position == 3){
+                }else if(position == 4){
                     ArrayList<MainVerModel> mainVerModels = new ArrayList<>();
                     mainVerModels.add(new MainVerModel(R.drawable.frappe,"Burger","10:00 - 15:00 min","Rs.50","Aloo Burger"));
                     mainVerModels.add(new MainVerModel(R.drawable.frappe,"Burger1","10:00 - 15:00 min","Rs.50","Aloo Burger"));
                     mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger2","10:00 - 15:00 min","Rs.50","Aloo Burger"));
+                    mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
                     mainVerModels.add(new MainVerModel(R.drawable.burgerburger,"Burger3","10:00 - 15:00 min","Rs.50","Aloo Burger"));
 
                     updateVerticalRec.callBack(position,mainVerModels);
