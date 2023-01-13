@@ -1,11 +1,15 @@
 package com.pushpendra.canapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,10 +20,16 @@ import com.pushpendra.canapp.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+import p32929.androideasysql_library.Column;
+import p32929.androideasysql_library.EasyDB;
 
 public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHolder> {
     Context context;
     ArrayList<MainVerModel> list;
+    int itemQuantity;
+
 
 
     public MainVerAdapter(Context context, ArrayList<MainVerModel> list){
@@ -36,13 +46,56 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        holder.imageView.setImageResource(list.get(position).getImage());
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        holder.imageView.setImageResource(list.get(position).getImage());
         holder.name.setText(list.get(position).getName());
         holder.timing.setText(list.get(position).getTiming());
         holder.price.setText(list.get(position).getPrice());
         holder.description.setHint(list.get(position).getDescription());
         //holder.Quantity.setText(itemQuantity);
+        holder.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemQuantity++;
+                holder.Quantity.setText(String.valueOf(itemQuantity));
+                addtoCart(list.get(position).getName(),String.valueOf(list.get(position).getImage()),list.get(position).getPrice(),String.valueOf(itemQuantity));
+            }
+        });
+        holder.minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(itemQuantity>0) {
+                    itemQuantity--;
+                }
+                holder.Quantity.setText(String.valueOf(itemQuantity));
+
+            }
+        });
+    }
+    public int itemid = 1;
+    private void addtoCart(String Name, String Image, String price, String Quantity){
+
+        Random random = new Random();
+        itemid = random.nextInt(200000);
+
+        EasyDB easyDB = EasyDB.init(context, "ITEM_DB");
+        easyDB.setTableName("ITEM_TABLE");
+        easyDB.addColumn(new Column("item_id", new String[]{"text", "notnull"}));
+        easyDB.addColumn(new Column("item_name", new String[]{"text", "notnull"}));
+        easyDB.addColumn(new Column("item_image", new String[]{"text", "notnull"}));
+        easyDB.addColumn(new Column("item_price", new String[]{"text", "notnull"}));
+        easyDB.addColumn(new Column("item_Quantity", new String[]{"text", "notnull"}));
+        easyDB.doneTableColumn();
+
+        Boolean b  = easyDB.addData("item_id",itemid)
+                .addData("item_name",Name)
+                .addData("item_image",Image)
+                .addData("item_price",price)
+                .addData("item_Quantity",Quantity)
+                .doneDataAdding();
+
+        Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -55,7 +108,7 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
         ImageView imageView,add,minus;
         TextView name, timing, price, description, Quantity;
 
-        int itemQuantity = 0;
+
 
         public ViewHolder(@NotNull View itemView) {
             super(itemView);
@@ -68,22 +121,7 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
             Quantity = itemView.findViewById(R.id.main_vertical_quantity);
             minus = itemView.findViewById(R.id.main_vertical_item_minus_button);
 
-            add.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    itemQuantity++;
-                    Quantity.setText(String.valueOf(itemQuantity));
-                }
-            });
-            minus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(itemQuantity>0) {
-                        itemQuantity--;
-                    }
-                    Quantity.setText(String.valueOf(itemQuantity));
-                }
-            });
+
         }
 
         @Override
@@ -92,6 +130,8 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
         }
 
 
+
     }
+
 
 }
