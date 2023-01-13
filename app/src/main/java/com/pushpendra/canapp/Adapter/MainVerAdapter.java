@@ -28,8 +28,6 @@ import p32929.androideasysql_library.EasyDB;
 public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHolder> {
     Context context;
     ArrayList<MainVerModel> list;
-    int itemQuantity;
-
 
 
     public MainVerAdapter(Context context, ArrayList<MainVerModel> list){
@@ -53,50 +51,32 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
         holder.timing.setText(list.get(position).getTiming());
         holder.price.setText(list.get(position).getPrice());
         holder.description.setHint(list.get(position).getDescription());
-        //holder.Quantity.setText(itemQuantity);
-        holder.add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                itemQuantity++;
-                holder.Quantity.setText(String.valueOf(itemQuantity));
-                addtoCart(list.get(position).getName(),String.valueOf(list.get(position).getImage()),list.get(position).getPrice(),String.valueOf(itemQuantity));
-            }
-        });
-        holder.minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(itemQuantity>0) {
-                    itemQuantity--;
-                }
-                holder.Quantity.setText(String.valueOf(itemQuantity));
 
-            }
-        });
     }
-    public int itemid = 1;
-    private void addtoCart(String Name, String Image, String price, String Quantity){
-
-        Random random = new Random();
-        itemid = random.nextInt(200000);
-
-        EasyDB easyDB = EasyDB.init(context, "ITEM_DB");
-        easyDB.setTableName("ITEM_TABLE");
-        easyDB.addColumn(new Column("item_id", new String[]{"text", "notnull"}));
-        easyDB.addColumn(new Column("item_name", new String[]{"text", "notnull"}));
-        easyDB.addColumn(new Column("item_image", new String[]{"text", "notnull"}));
-        easyDB.addColumn(new Column("item_price", new String[]{"text", "notnull"}));
-        easyDB.addColumn(new Column("item_Quantity", new String[]{"text", "notnull"}));
-        easyDB.doneTableColumn();
-
-        Boolean b  = easyDB.addData("item_id",itemid)
-                .addData("item_name",Name)
-                .addData("item_image",Image)
-                .addData("item_price",price)
-                .addData("item_Quantity",Quantity)
-                .doneDataAdding();
-
-        Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();
-    }
+//    public int itemid = 1;
+//    private void addtoCart(String Name, String Image, String price, String Quantity){
+//
+//        Random random = new Random();
+//        itemid = random.nextInt(200000);
+//
+//        EasyDB easyDB = EasyDB.init(context, "ITEM_DB");
+//        easyDB.setTableName("ITEM_TABLE");
+//        easyDB.addColumn(new Column("item_id", new String[]{"text", "notnull"}));
+//        easyDB.addColumn(new Column("item_name", new String[]{"text", "notnull"}));
+//        easyDB.addColumn(new Column("item_image", new String[]{"text", "notnull"}));
+//        easyDB.addColumn(new Column("item_price", new String[]{"text", "notnull"}));
+//        easyDB.addColumn(new Column("item_Quantity", new String[]{"text", "notnull"}));
+//        easyDB.doneTableColumn();
+//
+//        Boolean b  = easyDB.addData("item_id",itemid)
+//                .addData("item_name",Name)
+//                .addData("item_image",Image)
+//                .addData("item_price",price)
+//                .addData("item_Quantity",Quantity)
+//                .doneDataAdding();
+//
+//        Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();
+//    }
 
     @Override
     public int getItemCount() {
@@ -117,10 +97,6 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
             timing = itemView.findViewById(R.id.main_vertical_timing);
             price = itemView.findViewById(R.id.main_vertical_price);
             description = itemView.findViewById(R.id.main_vertical_description);
-            add = itemView.findViewById(R.id.main_vertical_add_buttton);
-            Quantity = itemView.findViewById(R.id.main_vertical_quantity);
-            minus = itemView.findViewById(R.id.main_vertical_item_minus_button);
-
 
         }
 

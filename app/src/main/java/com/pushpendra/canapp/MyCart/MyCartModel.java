@@ -1,22 +1,26 @@
 package com.pushpendra.canapp.MyCart;
 
 public class MyCartModel {
-    int image;
-    String name;
-    String price;
+    String id,name,image,price;
 
-    public MyCartModel(int image, String name, String price) {
-        this.image = image;
+    public MyCartModel(){
+
+    }
+
+    public MyCartModel(String id, String name, String image, String price) {
+        this.id = id;
         this.name = name;
-        this.price = price;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
         this.image = image;
+        this.price = price;
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -27,11 +31,20 @@ public class MyCartModel {
         this.name = name;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getPrice() {
         return price;
     }
 
-    public void setPrice() {
+    public void setPrice(String price) {
         this.price = price;
     }
+
 }

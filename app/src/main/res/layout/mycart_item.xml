@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@+id/mycart_description" />
 
         <TextView
-            android:id="@+id/mycart_AddButton"
+            android:id="@+id/mycart_Quantity"
             android:layout_width="67dp"
             android:layout_height="26dp"
             android:layout_marginEnd="12dp"

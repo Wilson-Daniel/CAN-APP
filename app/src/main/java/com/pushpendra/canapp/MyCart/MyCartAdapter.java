@@ -1,5 +1,6 @@
 package com.pushpendra.canapp.MyCart;
 
+import android.content.Context;
 import android.content.pm.LabeledIntent;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -12,14 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pushpendra.canapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder> {
-    List<MyCartModel> list;
+    Context context;
+    List<MyCartModel> cartlist;
 
-    public MyCartAdapter(List<MyCartModel> list) {
-        this.list = list;
+    public MyCartAdapter(Context context, List<MyCartModel> cartlist) {
+        this.context = context;
+        this.cartlist = cartlist;
     }
 
     @NonNull
@@ -30,26 +34,33 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyCartAdapter.ViewHolder holder, int position) {
-        holder.mycart_imageView.setImageResource(list.get(position).getImage());
-        holder.mycart_name.setText(list.get(position).getName());
-        holder.mycart_price.setText(list.get(position).getPrice());
+        holder.mycart_name.setText(cartlist.get(position).getName());
+        holder.mycart_price.setText(cartlist.get(position).getPrice());
+        holder.mycart_quantity.setText(cartlist.get(position).getQuantity());
+        try{
+            Picasso.get().load(cartlist.get(position).getImage()).into(holder.mycart_imageView);
+        }catch(Exception e){
+
+        }
+
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return cartlist.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView mycart_imageView;
-        TextView mycart_name,mycart_price;
+        TextView mycart_name,mycart_price,mycart_quantity;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mycart_imageView = itemView.findViewById(R.id.mycart_image);
             mycart_name = itemView.findViewById(R.id.mycart_Name);
             mycart_price = itemView.findViewById(R.id.mycart_price);
-
+            mycart_quantity = itemView.findViewById(R.id.mycart_Quantity);
 
         }
     }
