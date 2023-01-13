@@ -13,7 +13,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
+import com.pushpendra.canapp.DATABASE.AppDatabase;
+import com.pushpendra.canapp.DATABASE.Product;
+import com.pushpendra.canapp.DATABASE.ProductDao;
 import com.pushpendra.canapp.Models.MainVerModel;
 import com.pushpendra.canapp.R;
 
@@ -46,11 +50,13 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        holder.imageView.setImageResource(list.get(position).getImage());
+        //holder.imageView.setImageResource(list.get(position).getImage());
         holder.name.setText(list.get(position).getName());
         holder.timing.setText(list.get(position).getTiming());
         holder.price.setText(list.get(position).getPrice());
         holder.description.setHint(list.get(position).getDescription());
+
+
 
     }
 //    public int itemid = 1;
@@ -85,8 +91,8 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        ImageView imageView,add,minus;
-        TextView name, timing, price, description, Quantity;
+        ImageView imageView;
+        TextView name, timing, price, description, add;
 
 
 
@@ -97,12 +103,29 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
             timing = itemView.findViewById(R.id.main_vertical_timing);
             price = itemView.findViewById(R.id.main_vertical_price);
             description = itemView.findViewById(R.id.main_vertical_description);
-
+            add = itemView.findViewById(R.id.add_button_constraint);
         }
 
         @Override
         public void onClick(View view) {
-
+//            add.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    AppDatabase db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class,"cart_db").allowMainThreadQueries().build();
+//                    ProductDao productDao = db.ProductDao();
+//                    Boolean check = productDao.is_exist((int)list.get(getAdapterPosition()).getName().charAt(0));
+//                    if(check == false){
+//                        int pid = (int)list.get(getAdapterPosition()).getName().charAt(0);
+//                        String pname = list.get(getAdapterPosition()).getName();
+//                        int price = Integer.parseInt(list.get(getAdapterPosition()).getPrice());
+//                        int qnt = 1;
+//                        productDao.insertrecord(new Product(pid,pname,price,qnt));
+//                        Toast.makeText(context, "Product Added Successfully", Toast.LENGTH_SHORT).show();
+//                    }else{
+//                        Toast.makeText(context, "Product Already Added", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
         }
 
 
