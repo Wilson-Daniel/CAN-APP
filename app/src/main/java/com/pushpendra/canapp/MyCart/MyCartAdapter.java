@@ -12,18 +12,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pushpendra.canapp.DATABASE.Product;
 import com.pushpendra.canapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder> {
-    Context context;
-    List<MyCartModel> cartlist;
+    TextView rateview;
+    List<Product> product;
 
-    public MyCartAdapter(Context context, List<MyCartModel> cartlist) {
-        this.context = context;
-        this.cartlist = cartlist;
+    public MyCartAdapter(List<Product> product,TextView rateview) {
+        this.product = product;
+        this.rateview = rateview;
     }
 
     @NonNull
@@ -34,9 +35,9 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyCartAdapter.ViewHolder holder, int position) {
-//        holder.mycart_name.setText(cartlist.get(position).getName());
-//        holder.mycart_price.setText(cartlist.get(position).getPrice());
-//        holder.mycart_quantity.setText(cartlist.get(position).getQuantity());
+        holder.mycart_name.setText(product.get(position).getPname());
+        holder.mycart_price.setText(String.valueOf(product.get(position).getPrice()));
+        holder.mycart_quantity.setText(String.valueOf(product.get(position).getQnt()));
 //        try{
 //            Picasso.get().load(cartlist.get(position).getImage()).into(holder.mycart_imageView);
 //        }catch(Exception e){
@@ -47,7 +48,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return cartlist.size();
+        return product.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -57,7 +58,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mycart_imageView = itemView.findViewById(R.id.mycart_image);
+            //mycart_imageView = itemView.findViewById(R.id.mycart_image);
             mycart_name = itemView.findViewById(R.id.mycart_Name);
             mycart_price = itemView.findViewById(R.id.mycart_price);
             mycart_quantity = itemView.findViewById(R.id.mycart_Quantity);

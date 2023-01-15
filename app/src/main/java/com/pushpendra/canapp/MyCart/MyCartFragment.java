@@ -52,15 +52,15 @@ public class MyCartFragment extends Fragment {
 
         List<Product> product = productDao.getallproduct();
 
-//        MyCartAdapter adapter = new MyCartAdapter(product,priceTotal);
-//        myCartRecyclerview.setAdapter(adapter);
+        MyCartAdapter adapter = new MyCartAdapter(product,priceTotal);
+        myCartRecyclerview.setAdapter(adapter);
 
         int sum=0;
         for(int i=0; i<product.size(); i++){
             sum+=(product.get(i).getPrice()*product.get(i).getQnt());
         }
-        //priceTotal.setText(String.valueOf(sum));
-        //getcartItems();
+        //priceTotal.setText(sum);
+//        getcartItems();
         return view;
 
     }
