@@ -1,6 +1,5 @@
 package com.codingstuff.shoeapp.utils.adapter;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingstuff.shoeapp.R;
-import com.codingstuff.shoeapp.utils.model.ShoeCart;
 import com.codingstuff.shoeapp.utils.model.ShoeItem;
-import com.codingstuff.shoeapp.viewmodel.CartViewModel;
-import com.codingstuff.shoeapp.views.CartActivity;
-import com.codingstuff.shoeapp.views.DetailedActivity;
 
 import java.util.List;
 
@@ -53,12 +48,12 @@ public class ShoeItemAdapter extends RecyclerView.Adapter<ShoeItemAdapter.ShoeIt
             }
         });
 
-        holder.addToCartBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-
-        });
+//        holder.addToCartBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//            }
+//
+//        });
     }
 
     @Override
@@ -77,12 +72,12 @@ public class ShoeItemAdapter extends RecyclerView.Adapter<ShoeItemAdapter.ShoeIt
         public ShoeItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            cardView = itemView.findViewById(R.id.eachShoeCardView);
-            addToCartBtn = itemView.findViewById(R.id.eachShoeAddToCartBtn);
-            shoeNameTv = itemView.findViewById(R.id.eachShoeName);
-            shoeImageView = itemView.findViewById(R.id.eachShoeIv);
-            shoeBrandNameTv = itemView.findViewById(R.id.eachShoeBrandNameTv);
-            shoePriceTv = itemView.findViewById(R.id.eachShoePriceTv);
+            cardView = itemView.findViewById(R.id.eachItemshoeCardview);
+            //addToCartBtn = itemView.findViewById(R.id.eachShoeAddToCartBtn);
+            shoeNameTv = itemView.findViewById(R.id.eachDrinkName);
+            shoeImageView = itemView.findViewById(R.id.eachDrinkImage);
+            shoeBrandNameTv = itemView.findViewById(R.id.eachDrinkBrandNameTv);
+            shoePriceTv = itemView.findViewById(R.id.eachDrinkPriceTv);
         }
     }
 

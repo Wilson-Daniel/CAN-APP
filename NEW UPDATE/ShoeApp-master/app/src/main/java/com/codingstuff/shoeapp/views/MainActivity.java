@@ -38,8 +38,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.ShoeClickedListeners{
 
-    private RecyclerView recyclerView;
-    private List<ShoeItem> shoeItemList;
+    private RecyclerView recyclerView, drinksRecyclerview;
+    private List<ShoeItem> shoeItemList, drinksItemList;
     private ShoeItemAdapter adapter;
     private CartViewModel viewModel;
     private List<ShoeCart> shoeCartList;
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
     }
 
     private void setUpList() {
-        shoeItemList.add(new ShoeItem("Nike Revolution", "Nike", R.drawable.nike_revolution_road, 15));
+        shoeItemList.add(new ShoeItem("Nike Revolution", "Nike", R.drawable.main_burger_allo, 15));
         shoeItemList.add(new ShoeItem("Nike Flex Run 2021", "NIKE", R.drawable.flex_run_road_running, 20));
         shoeItemList.add(new ShoeItem("Court Zoom Vapor", "NIKE", R.drawable.nikecourt_zoom_vapor_cage, 18));
         shoeItemList.add(new ShoeItem("EQ21 Run COLD.RDY", "ADIDAS", R.drawable.adidas_eq_run, 16.5));
