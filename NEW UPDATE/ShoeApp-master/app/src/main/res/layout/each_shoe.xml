@@ -21,7 +21,7 @@
         android:paddingRight="10dp">
 
         <ImageView
-            android:id="@+id/eachDrinkImage"
+            android:id="@+id/eachShoeImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:elevation="20dp"
@@ -34,7 +34,7 @@
             app:srcCompat="@drawable/main_item_squares" />
 
         <TextView
-            android:id="@+id/eachDrinkName"
+            android:id="@+id/eachShoeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -46,12 +46,12 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/eachDrinkImage"
+            app:layout_constraintStart_toEndOf="@+id/eachShoeImage"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/eachDrinkPriceTv"
+            android:id="@+id/eachShoePriceTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -62,11 +62,11 @@
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/eachDrinkBrandNameTv"
-            app:layout_constraintTop_toBottomOf="@+id/eachDrinkBrandNameTv" />
+            app:layout_constraintStart_toStartOf="@+id/eachShoeBrandNameTv"
+            app:layout_constraintTop_toBottomOf="@+id/eachShoeBrandNameTv" />
 
         <TextView
-            android:id="@+id/eachDrinkBrandNameTv"
+            android:id="@+id/eachShoeBrandNameTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
@@ -76,8 +76,8 @@
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/eachDrinkName"
-            app:layout_constraintTop_toBottomOf="@+id/eachDrinkName" />
+            app:layout_constraintStart_toStartOf="@+id/eachShoeName"
+            app:layout_constraintTop_toBottomOf="@+id/eachShoeName" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

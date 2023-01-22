@@ -17,7 +17,6 @@ import java.util.List;
 
 public class ShoeItemAdapter extends RecyclerView.Adapter<ShoeItemAdapter.ShoeItemViewHolder> {
 
-
     private List<ShoeItem> shoeItemList;
     private ShoeClickedListeners shoeClickedListeners;
     public ShoeItemAdapter(ShoeClickedListeners shoeClickedListeners){
@@ -74,10 +73,10 @@ public class ShoeItemAdapter extends RecyclerView.Adapter<ShoeItemAdapter.ShoeIt
 
             cardView = itemView.findViewById(R.id.eachItemshoeCardview);
             //addToCartBtn = itemView.findViewById(R.id.eachShoeAddToCartBtn);
-            shoeNameTv = itemView.findViewById(R.id.eachDrinkName);
-            shoeImageView = itemView.findViewById(R.id.eachDrinkImage);
-            shoeBrandNameTv = itemView.findViewById(R.id.eachDrinkBrandNameTv);
-            shoePriceTv = itemView.findViewById(R.id.eachDrinkPriceTv);
+            shoeNameTv = itemView.findViewById(R.id.eachShoeName);
+            shoeImageView = itemView.findViewById(R.id.eachShoeImage);
+            shoeBrandNameTv = itemView.findViewById(R.id.eachShoeBrandNameTv);
+            shoePriceTv = itemView.findViewById(R.id.eachShoePriceTv);
         }
     }
 

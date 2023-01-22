@@ -1,50 +1,43 @@
 package com.codingstuff.shoeapp.views;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingstuff.shoeapp.R;
-import com.codingstuff.shoeapp.databinding.ActivityMainBinding;
+import com.codingstuff.shoeapp.utils.adapter.DrinksItemAdapter;
 import com.codingstuff.shoeapp.utils.adapter.ShoeItemAdapter;
 import com.codingstuff.shoeapp.utils.model.ShoeCart;
 import com.codingstuff.shoeapp.utils.model.ShoeItem;
+import com.codingstuff.shoeapp.utils.model.ShoeItem2;
 import com.codingstuff.shoeapp.viewmodel.CartViewModel;
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.ShoeClickedListeners{
+public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.ShoeClickedListeners, DrinksItemAdapter.DrinksClickedListeners {
 
     private RecyclerView recyclerView, drinksRecyclerview;
-    private List<ShoeItem> shoeItemList, drinksItemList;
+    List<ShoeItem> shoeItemList,DrinksItemList;
+
     private ShoeItemAdapter adapter;
-    private CartViewModel viewModel;
-    private List<ShoeCart> shoeCartList;
+    private DrinksItemAdapter drinkadapter;
+    CartViewModel viewModel,viewModel1;
+
+    List<ShoeCart> shoeCartList,DrinksCartList;
     private CoordinatorLayout coordinatorLayout;
     private ImageView cartImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +46,20 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
         initializeVariables();
         setUpList();
 
+
         adapter.setShoeItemList(shoeItemList);
         recyclerView.setAdapter(adapter);
+
+        //DrinksItemList.add(new ShoeItem2("Nike Revolution", "Nike", R.drawable.main_burger_allo, 15));
+
+        drinksRecyclerview = findViewById(R.id.drink_recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
+        drinkadapter = new DrinksItemAdapter(this);
+        setUpDrinkList();
+
+        drinkadapter.setDrinksItemList(DrinksItemList);
+        drinksRecyclerview.setAdapter(drinkadapter);
 
 
         cartImageView.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +73,11 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
 
     }
 
+    public void setUpDrinkList() {
+        DrinksItemList.add(new ShoeItem("Nike Revolution", "Nike", R.drawable.main_burger_allo, 15));
+        //DrinksItemList.add(new ShoeItem2("Nike Revolution", "Nike", R.drawable.main_burger_allo, 15));
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -76,6 +86,12 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
             @Override
             public void onChanged(List<ShoeCart> shoeCarts) {
                 shoeCartList.addAll(shoeCarts);
+            }
+        });
+        viewModel1.getAllCartItems().observe(this, new Observer<List<ShoeCart>>() {
+            @Override
+            public void onChanged(List<ShoeCart> shoeCarts) {
+                DrinksCartList.addAll(shoeCarts);
             }
         });
     }
@@ -89,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
         shoeItemList.add(new ShoeItem("Adidas Questar", "ADIDAS", R.drawable.adidas_questar_shoes, 22));
         shoeItemList.add(new ShoeItem("Adidas Questar", "ADIDAS", R.drawable.adidas_questar_shoes, 12));
         shoeItemList.add(new ShoeItem("Adidas Ultraboost", "ADIDAS", R.drawable.adidas_ultraboost, 15));
+
 
     }
 
@@ -105,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
 
         adapter = new ShoeItemAdapter(this);
 
+
     }
 
     @Override
@@ -112,6 +130,13 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
 
         Intent intent = new Intent(MainActivity.this, DetailedActivity.class);
         intent.putExtra("shoeItem", shoe);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onCardClicked(ShoeItem2 shoe1) {
+        Intent intent = new Intent(MainActivity.this, DetailedActivity.class);
+        intent.putExtra("shoeItem", shoe1);
         startActivity(intent);
     }
 
@@ -159,4 +184,11 @@ public class MainActivity extends AppCompatActivity implements ShoeItemAdapter.S
                     }
                 }).show();
     }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
+
+
 }
