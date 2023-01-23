@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "347519112001",
+    "project_id": "wilsoncanteenapp",
+    "storage_bucket": "wilsoncanteenapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347519112001:android:b379175137348b4ba507c0",
+        "android_client_info": {
+          "package_name": "com.wilson.shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347519112001-276s2i95able5e7v3qafuc3bhlrg23fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjgB4AkTIDcrW3bLkv8fp8L_8XMDb2LFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347519112001-276s2i95able5e7v3qafuc3bhlrg23fd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
