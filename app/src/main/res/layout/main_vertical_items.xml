@@ -18,7 +18,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/main_vertical_image"
+            android:id="@+id/product_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="5dp"
@@ -34,7 +34,7 @@
             app:srcCompat="@drawable/main_item_squares" />
 
         <TextView
-            android:id="@+id/main_vertical_Name"
+            android:id="@+id/product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -43,12 +43,12 @@
             android:text="Product Name"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/main_vertical_image"
+            app:layout_constraintStart_toEndOf="@+id/product_image"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/main_vertical_price"
+            android:id="@+id/product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -56,13 +56,13 @@
             android:text="Rs.50"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/main_vertical_Name"
+            app:layout_constraintBottom_toBottomOf="@+id/product_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/main_vertical_Name"
+            app:layout_constraintTop_toTopOf="@+id/product_name"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/main_vertical_description"
+            android:id="@+id/product_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -72,8 +72,8 @@
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/main_vertical_Name"
-            app:layout_constraintTop_toBottomOf="@+id/main_vertical_Name" />
+            app:layout_constraintStart_toStartOf="@+id/product_name"
+            app:layout_constraintTop_toBottomOf="@+id/product_name" />
 
         <TextView
             android:id="@+id/main_vertical_timing"
@@ -84,8 +84,8 @@
             android:text="10:00 - 15:00 min"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/main_vertical_description"
-            app:layout_constraintTop_toBottomOf="@+id/main_vertical_description" />
+            app:layout_constraintStart_toStartOf="@+id/product_description"
+            app:layout_constraintTop_toBottomOf="@+id/product_description" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/add_button_constraint"

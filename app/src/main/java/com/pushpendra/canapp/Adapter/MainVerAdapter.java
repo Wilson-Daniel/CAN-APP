@@ -2,8 +2,6 @@ package com.pushpendra.canapp.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +22,6 @@ import com.pushpendra.canapp.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Random;
-
-import p32929.androideasysql_library.Column;
-import p32929.androideasysql_library.EasyDB;
 
 public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHolder> {
     Context context;
@@ -115,11 +109,11 @@ public class MainVerAdapter extends RecyclerView.Adapter<MainVerAdapter.ViewHold
 
         public ViewHolder(@NotNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.main_vertical_image);
-            name = itemView.findViewById(R.id.main_vertical_Name);
+            imageView = itemView.findViewById(R.id.product_image);
+            name = itemView.findViewById(R.id.product_name);
             timing = itemView.findViewById(R.id.main_vertical_timing);
-            price = itemView.findViewById(R.id.main_vertical_price);
-            description = itemView.findViewById(R.id.main_vertical_description);
+            price = itemView.findViewById(R.id.product_price);
+            description = itemView.findViewById(R.id.product_description);
             add = itemView.findViewById(R.id.add_button_constraint);
         }
 
