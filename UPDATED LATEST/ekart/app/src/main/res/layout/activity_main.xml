@@ -1,64 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/welcome"
+    android:background="#E0F8F1"
     tools:context=".MainActivity">
+
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="171dp"
+        android:layout_height="75dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/applogo"
-        />
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/wind"
+        app:layout_constraintBottom_toTopOf="@+id/app_slogan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/wind" />
+
     <TextView
         android:id="@+id/app_slogan"
-        android:layout_width="248dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="80dp"
-        android:layout_marginTop="142dp"
-        android:text="Find, Discover, Choose and Buy anything online."
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="148dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="ABESIT Canteen"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        />
-    <Button
-        android:id="@+id/main_login_btn"
-        android:layout_width="match_parent"
+        android:textColor="#272f40"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/buttons"
-        android:padding="15dp"
-        android:textAllCaps="false"
-        android:textSize="13sp"
-        android:text="Already have an Account? Login"
-        android:textColor="@android:color/white"
-        />
+        android:background="@drawable/main_button_bg"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/main_join_now_btn"
-        android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/wind" />
+
+        <TextView
+            android:id="@+id/main_login_btn"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/outfit_medium"
+            android:gravity="center"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#272f40"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/main_login_btn"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/input_design"
-        android:padding="10dp"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:text="Join Now"
-        android:textColor="@android:color/white"
-        />
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/main_button_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/main_join_now_btn"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+
+            android:background="@drawable/register_google_bg"
+            android:fontFamily="@font/outfit_medium"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="#36383D"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="478dp"
+        android:layout_height="698dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/main_design" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
