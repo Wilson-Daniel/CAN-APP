@@ -4,10 +4,9 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_cart"
-            android:icon="@drawable/maincarticon"
+            android:icon="@drawable/shopping_nav_cart"
             android:iconTint="@android:color/black"
-            android:title="Cart"
-            />
+            android:title="Cart" />
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/navsearchicon"
@@ -15,9 +14,9 @@
             android:title="Search" />
         <item
             android:id="@+id/nav_categories"
-            android:icon="@drawable/category"
-            android:title="Categories"
-            android:iconTint="@android:color/black"/>
+            android:icon="@drawable/nav_category_pic"
+            android:iconTint="@android:color/black"
+            android:title="Categories" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_person_add"

@@ -19,7 +19,7 @@
         android:elevation="100dp"
         android:src="@drawable/profileimage"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/user_profile_name"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.719" />
 
@@ -27,36 +27,40 @@
         android:id="@+id/user_profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:fontFamily="@font/outfit_medium"
-        android:gravity="center"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Hello Foodie!!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/user_profile_image"
-        app:layout_constraintTop_toTopOf="@+id/user_profile_image" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
         android:fontFamily="@font/outfit_medium"
-        android:text="&quot;I bless you'll have a delicious meal !!&quot;"
-        app:layout_constraintStart_toEndOf="@+id/user_profile_image"
-        app:layout_constraintTop_toBottomOf="@+id/user_profile_name" />
+        android:hint="&quot;I bless.... you'll have a delicious meal !!&quot;"
+        app:layout_constraintBottom_toBottomOf="@+id/user_profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user_profile_image"
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/outfit_medium"
-        android:text="Hello"
-        android:textColor="@color/white"
+        android:text="Hello.."
+        android:textColor="@android:color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/user_profile_name"
-        app:layout_constraintStart_toEndOf="@+id/user_profile_name"
-        app:layout_constraintTop_toTopOf="@+id/user_profile_name" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
