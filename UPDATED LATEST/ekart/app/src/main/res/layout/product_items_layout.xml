@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/product_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -30,7 +30,7 @@
             android:src="@drawable/main_item_squares"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/product_name1"
@@ -55,10 +55,10 @@
             android:text="Rs.50"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/product_name1"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/product_name1"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.797" />
 
         <TextView
             android:id="@+id/product_description1"
@@ -73,19 +73,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/product_name1"
             app:layout_constraintTop_toBottomOf="@+id/product_name1" />
-
-        <TextView
-            android:id="@+id/main_vertical_timing1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/outfit_medium"
-            android:text="10:00 - 15:00 min"
-            android:textColorHint="#000000"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/product_description1"
-            app:layout_constraintTop_toBottomOf="@+id/product_description1" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
