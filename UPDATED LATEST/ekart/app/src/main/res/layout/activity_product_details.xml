@@ -56,21 +56,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_description_details"
-        android:layout_marginTop="136dp"
         android:fontFamily="@font/outfit_medium"
         android:gravity="center"
         android:text="Product Price"
-        android:textColor="@android:color/black"
+        android:textColor="#272F40"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_description_details" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
 
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
         android:id="@+id/number_btn"
-        android:layout_width="133dp"
-        android:layout_height="41dp"
+        android:layout_width="98dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/product_price_details"
         android:layout_centerHorizontal="true"
         android:elevation="60dp"
@@ -79,24 +78,26 @@
         app:initialNumber="1"
         app:layout_constraintBottom_toBottomOf="@+id/product_price_details"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.671"
+        app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toEndOf="@+id/product_price_details"
         app:layout_constraintTop_toTopOf="@+id/product_price_details"
-        app:textSize="10sp">
+        app:layout_constraintVertical_bias="1.0"
+        app:textSize="7sp">
 
     </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/main_button_bg"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_price_details"
-        app:layout_constraintVertical_bias="0.132">
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -125,5 +126,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Rs."
+        android:textColor="#272f40"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_description_details" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
