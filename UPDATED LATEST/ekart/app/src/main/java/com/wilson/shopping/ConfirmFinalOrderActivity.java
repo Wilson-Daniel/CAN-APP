@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.wilson.shopping.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +25,7 @@ import java.util.HashMap;
 
 public class ConfirmFinalOrderActivity extends AppCompatActivity {
     private EditText nameEditText,phoneEditText,addressEditText,cityEditText;
-    private Button confirmOrderBtn;
+    private ConstraintLayout confirmOrderBtn;
     private String totalAmount = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
         totalAmount = getIntent().getStringExtra("Total Price");
         Toast.makeText(this, "Total Price = Rs. "+totalAmount,Toast.LENGTH_SHORT).show();
-        confirmOrderBtn = (Button) findViewById(R.id.confirm_final_order_btn);
+        confirmOrderBtn =(ConstraintLayout) findViewById(R.id.confirm_final_order_btn);
         nameEditText =(EditText) findViewById(R.id.shippment_name);
         phoneEditText =(EditText) findViewById(R.id.shippment_phone_number);
         addressEditText =(EditText) findViewById(R.id.shippment_address);
