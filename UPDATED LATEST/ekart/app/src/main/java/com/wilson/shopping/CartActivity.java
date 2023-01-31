@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CartActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private Button NextProcessBtn;
+    private ConstraintLayout NextProcessBtn;
     private TextView txtTotalAmount, txtMsg1;
     private int overTotalPrice=0;
     @Override
@@ -45,13 +46,13 @@ public class CartActivity extends AppCompatActivity{
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        NextProcessBtn = (Button)findViewById(R.id.next_btn);
+        NextProcessBtn = (ConstraintLayout)findViewById(R.id.next_btn);
         txtTotalAmount = (TextView)findViewById(R.id.total_price);
         txtMsg1 = (TextView)findViewById(R.id.msg1);
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtTotalAmount.setText("Total Price = Rs."+String.valueOf(overTotalPrice));
+                txtTotalAmount.setText(String.valueOf(overTotalPrice));
                 Intent intent = new Intent(CartActivity.this,ConfirmFinalOrderActivity.class);
                 intent.putExtra("Total Price", String.valueOf(overTotalPrice));
                 startActivity(intent);
@@ -74,8 +75,8 @@ public class CartActivity extends AppCompatActivity{
                 = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull final Cart model) {
-                holder.txtProductQuantity.setText("Quantity = "+model.getQuantity());
-                holder.txtProductPrice.setText("Price = "+model.getPrice()+" Rs.");
+                holder.txtProductQuantity.setText("Quantity - "+model.getQuantity());
+                holder.txtProductPrice.setText("Price - Rs."+model.getPrice());
                 holder.txtProductName.setText(model.getPname());
                 int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice())))* Integer.valueOf(model.getQuantity());
                 overTotalPrice = overTotalPrice + oneTyprProductTPrice;
@@ -144,7 +145,7 @@ public class CartActivity extends AppCompatActivity{
                     String shippingState = dataSnapshot.child("state").getValue().toString();
                     String userName = dataSnapshot.child("name").getValue().toString();
                     if (shippingState.equals("Shipped")){
-                        txtTotalAmount.setText("TDear "+userName+"\n order is shipped successfully.");
+                        txtTotalAmount.setText("Dear "+userName+"\n order is shipped successfully.");
                         recyclerView.setVisibility(View.GONE);
                         txtMsg1.setVisibility(View.VISIBLE);
                         txtMsg1.setText("Congratulations, Your Final order has been shipped successfully. Soon you will received your order at your door step.");

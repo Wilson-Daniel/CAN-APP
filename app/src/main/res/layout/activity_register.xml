@@ -33,7 +33,7 @@
 
         android:fontFamily="@font/outfit_medium"
         android:inputType="textPassword"
-        android:padding="10dp"
+        android:paddingLeft="10dp"
         android:textColor="#4A4747"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.372"
@@ -168,7 +168,7 @@
 
         android:fontFamily="@font/outfit_medium"
         android:inputType="textEmailAddress"
-        android:padding="10dp"
+        android:paddingLeft="10dp"
         android:textColor="#4A4747"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.355"
@@ -226,6 +226,7 @@
         android:background="@drawable/login_email_pass_bag"
         android:ems="10"
         android:inputType="phone"
+        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="@+id/password"

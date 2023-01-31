@@ -28,23 +28,29 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class ProductDetailsActivity extends AppCompatActivity {
-    private Button addToCartButton;
+    private TextView addToCartButton;
     private ImageView productImage;
     private ElegantNumberButton numberButton;
     private TextView productPrice,productDescription,productName;
     private String productID="", state = "Normal";
+    private ImageView plus,minus;
+    private TextView quantity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
         productID = getIntent().getStringExtra("pid");
-        addToCartButton =(Button) findViewById(R.id.pd_add_to_cart_button);
+        addToCartButton =(TextView) findViewById(R.id.pd_add_to_cart_button);
         numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
         productImage = (ImageView) findViewById(R.id.product_image_details);
         productName = (TextView) findViewById(R.id.product_name_details);
         productDescription = (TextView) findViewById(R.id.product_description_details);
         productPrice = (TextView) findViewById(R.id.product_price_details);
+
+
+
         getProductDetails(productID);
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +66,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     @Override
     protected void onStart() {
