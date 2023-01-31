@@ -68,5 +68,8 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:26.1.1')
     implementation 'com.google.firebase:firebase-analytics'
+
+    //Payment
+    implementation 'com.shreyaspatil:EasyUpiPayment:2.0'
 }
 apply plugin: 'com.google.gms.google-services'

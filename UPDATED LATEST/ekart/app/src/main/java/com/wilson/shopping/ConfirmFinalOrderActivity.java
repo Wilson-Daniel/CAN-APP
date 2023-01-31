@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.shreyaspatil.EasyUpiPayment.EasyUpiPayment;
+import com.shreyaspatil.EasyUpiPayment.model.Payment;
 import com.wilson.shopping.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,8 +45,22 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Check();
+
             }
         });
+    }
+
+    public void PaymentGateWayStart() {
+        EasyUpiPayment.Builder builder = new EasyUpiPayment.Builder()
+                .setPayeeName("Abhishek")
+                .setPayeeVpa("9309815795@upi")
+                .setDescription(addressEditText.getText().toString())
+                .setAmount(totalAmount)
+                .setTransactionId(String.valueOf(System.currentTimeMillis()))
+                .setTransactionRefId(String.valueOf(System.currentTimeMillis()));
+        EasyUpiPayment upi = builder.build();
+        upi.startPayment();
+
     }
 
     private void Check() {
@@ -61,7 +77,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             Toast.makeText(this,"Please Provide Your City Name",Toast.LENGTH_SHORT).show();
         }
         else {
-
+//            PaymentGateWayStart();
             ConfirmOrder();
         }
     }
