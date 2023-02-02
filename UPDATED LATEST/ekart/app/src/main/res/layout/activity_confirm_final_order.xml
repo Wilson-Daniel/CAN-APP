@@ -48,6 +48,7 @@
         android:fontFamily="@font/outfit_medium"
         android:hint="Your Phone Number"
         android:inputType="number"
+        android:paddingLeft="10dp"
         android:textColor="#272f40"
         android:textColorHint="#999999"
         app:layout_constraintEnd_toEndOf="@+id/shippment_name"
@@ -63,7 +64,8 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/login_email_pass_bag"
         android:fontFamily="@font/outfit_medium"
-        android:hint="Your Home Address"
+        android:hint="Enter studing year"
+        android:paddingLeft="10dp"
         android:textColor="#272f40"
         android:textColorHint="#999999"
         app:layout_constraintEnd_toEndOf="@+id/shippment_phone_number"
@@ -79,7 +81,8 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/login_email_pass_bag"
         android:fontFamily="@font/outfit_medium"
-        android:hint="Your City Name"
+        android:hint="Enter description"
+        android:paddingLeft="10dp"
         android:textColor="#272f40"
         android:textColorHint="#999999"
         app:layout_constraintEnd_toEndOf="@+id/shippment_address"
@@ -100,18 +103,18 @@
             android:id="@+id/imageView8"
             android:layout_width="40dp"
             android:layout_height="45dp"
+            android:layout_marginEnd="28dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/wind" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="68dp"
             android:fontFamily="@font/outfit_medium"
             android:text="Confirm"
             android:textColor="#272f40"
@@ -176,4 +179,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/shippment_address" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_final_order_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
