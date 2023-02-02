@@ -45,7 +45,15 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Check();
-
+//                EasyUpiPayment.Builder builder = new EasyUpiPayment.Builder()
+//                        .setPayeeName("Abhishek")
+//                        .setPayeeVpa("9309815795@upi")
+//                        .setDescription(addressEditText.getText().toString())
+//                        .setAmount(totalAmount)
+//                        .setTransactionId("String.valueOf(System.currentTimeMillis())")
+//                        .setTransactionRefId(String.valueOf(System.currentTimeMillis()));
+//                EasyUpiPayment upi = builder.build();
+//                upi.startPayment();
             }
         });
     }
@@ -125,7 +133,6 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
                 }
             }
         });
-
-
+        //PaymentGateWayStart();
     }
 }
