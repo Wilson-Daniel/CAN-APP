@@ -121,7 +121,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/update_account_settings_btn"
+        android:id="@+id/check_orders_btn"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="@drawable/main_button_bg"

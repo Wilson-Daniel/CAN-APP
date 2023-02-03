@@ -159,7 +159,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity{
             //ConfirmOrder();
         }else{
             Toast.makeText(this, "Transaction failed", Toast.LENGTH_SHORT).show();
-//            ConfirmOrder();
+            ConfirmOrder();
         }
     }
     public static boolean isInternetAvailabe(ConfirmFinalOrderActivity context){

@@ -55,7 +55,7 @@ public class SettinsActivity extends AppCompatActivity {
         addressEditText = (EditText) findViewById(R.id.settings_address);
         profileChangeTextBtn = (TextView) findViewById(R.id.profile_image_change_btn);
         closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
-        saveTextButton = (TextView) findViewById(R.id.update_account_settings_btn);
+        saveTextButton = (TextView) findViewById(R.id.check_orders_btn);
 
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
 

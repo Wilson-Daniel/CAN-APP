@@ -45,7 +45,7 @@ public class CartActivity extends AppCompatActivity{
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        NextProcessBtn = (ConstraintLayout)findViewById(R.id.update_account_settings_btn);
+        NextProcessBtn = (ConstraintLayout)findViewById(R.id.check_orders_btn);
         txtTotalAmount = (TextView)findViewById(R.id.total_price);
         txtMsg1 = (TextView)findViewById(R.id.msg1);
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {

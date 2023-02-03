@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
@@ -36,6 +37,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private ImageView plus,minus;
     private TextView quantity;
 
+    private DatabaseReference ordersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (state.equals("Order Placed") || state.equals("Order Shipped")){
+
                     Toast.makeText(ProductDetailsActivity.this,"You can add Purchase more product, once your order is shipped or confirmed",Toast.LENGTH_LONG).show();
+
                 }
                 else
                 {
@@ -74,6 +78,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onStart();
         CheckOrderState();
     }
+
 
     private void addingToCartList() {
         String saveCurrentTime,saveCurrentDate;
@@ -137,6 +142,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     //
@@ -164,6 +170,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 
