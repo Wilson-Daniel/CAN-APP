@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/check_orders_btn"
+        app:layout_constraintBottom_toTopOf="@+id/place_orders_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/outfit_medium"
-            android:text="123"
+            android:text="0"
             android:textColor="#191818"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +82,7 @@
         android:id="@+id/cart_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_above="@+id/check_orders_btn"
+        android:layout_above="@+id/place_orders_btn"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:paddingTop="5dp"
@@ -96,7 +96,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/check_orders_btn"
+        android:id="@+id/place_orders_btn"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_marginBottom="24dp"

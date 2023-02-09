@@ -1,6 +1,7 @@
 package com.wilson.shopping;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
     private ConstraintLayout tShirts, sportsTShirts, femaleDresses,glasses, hatsCaps, walletsBagsPurses,Laptops, headPhonesHandFree,LogoutBtn,CheckOrdersBtn;
     private ImageView shoes,sweathers;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 finish();
             }
         });
-        CheckOrdersBtn = (ConstraintLayout) findViewById(R.id.check_orders_btn);
+        CheckOrdersBtn = (ConstraintLayout) findViewById(R.id.check_new_orders_btn_admin);
 
 
         CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {

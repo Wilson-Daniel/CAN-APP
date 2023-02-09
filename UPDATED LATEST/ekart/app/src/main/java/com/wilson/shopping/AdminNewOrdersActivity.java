@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.storage.FirebaseStorage;
 import com.wilson.shopping.Model.AdminOrders;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -25,12 +26,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminNewOrdersActivity extends AppCompatActivity {
     private RecyclerView ordersList;
-    private DatabaseReference ordersRef;
+    private DatabaseReference ordersRef,ordersRef2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_new_orders);
         ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+        ordersRef2 = FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin view");
         ordersList = findViewById(R.id.orders_list);
         ordersList.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -80,7 +82,9 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         if (i==0){
                                             String uID = getRef(position).getKey();
+                                            String Ui = getRef(position).getKey();
                                             RemoverOrder(uID);
+                                            RemoveAdminList(Ui);
 
                                         }
                                         else {
@@ -125,5 +129,9 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
     }
     private void RemoverOrder(String uID) {
         ordersRef.child(uID).removeValue();
+//        ordersRef.child(uID).child("Pro")
+    }
+    private void RemoveAdminList(String Ui){
+        ordersRef2.child(Ui).removeValue();
     }
 }

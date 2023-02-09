@@ -87,6 +87,7 @@
     </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pd_add_to_cart_button"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_marginTop="28dp"
@@ -111,7 +112,6 @@
             app:srcCompat="@drawable/wind" />
 
         <TextView
-            android:id="@+id/pd_add_to_cart_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

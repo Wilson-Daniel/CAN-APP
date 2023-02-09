@@ -1,6 +1,7 @@
 package com.wilson.shopping;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.os.Bundle;
@@ -12,7 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.WithHint;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.wilson.shopping.Model.Users;
@@ -58,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 //                LoginButton.setText("Login Admin");
                 AdminLink.setVisibility(View.INVISIBLE);
                 NotAdminLink.setVisibility(View.VISIBLE);
+
                 parentDbName = "Admins";
                 Intent intent = new Intent(LoginActivity.this, com.wilson.shopping.AdminCategoryActivity.class);
                 startActivity(intent);
@@ -67,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-
                 AdminLink.setVisibility(View.VISIBLE);
                 NotAdminLink.setVisibility(View.INVISIBLE);
                 parentDbName = "Users";

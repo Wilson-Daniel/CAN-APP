@@ -1,5 +1,6 @@
 package com.wilson.shopping;
 
+import android.app.Activity;
 import android.content.Intent;
 
 import android.net.ConnectivityManager;
@@ -18,14 +19,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.shreyaspatil.EasyUpiPayment.EasyUpiPayment;
-import com.shreyaspatil.EasyUpiPayment.listener.PaymentStatusListener;
-import com.shreyaspatil.EasyUpiPayment.model.TransactionDetails;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 import com.wilson.shopping.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class ConfirmFinalOrderActivity extends AppCompatActivity{
+public class ConfirmFinalOrderActivity extends AppCompatActivity implements PaymentResultListener {
     private EditText nameEditText,phoneEditText,addressEditText,cityEditText;
     private ConstraintLayout confirmOrderBtn;
     private TextView transactionDetailsTV;
@@ -75,7 +77,8 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity{
 //                }
                 //Toast.makeText(ConfirmFinalOrderActivity.this, "Please enter all the details..", Toast.LENGTH_SHORT).show();
                 //makePayment(amount, upi, name, desc, transcId);
-                PayUsingUpi(name,upi,amount,desc,transcId,transcId+"78");
+                //PayUsingUpi(name,upi,amount,desc,transcId,transcId+"78");
+                PaymentNow(totalAmount);
             }
         });
     }
@@ -236,5 +239,48 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity{
                 }
             }
         });
+    }
+
+    private void PaymentNow(String totalAmount){
+        final Activity activity = this;
+        Checkout checkout = new Checkout();
+        checkout.setKeyID("rzp_test_7aHSMOubhf1j3i");
+
+        double finalAmount = Float.parseFloat(totalAmount)*100;
+
+        try {
+            JSONObject options = new JSONObject();
+            options.put("name", "Razorpay Corp");
+            options.put("description", "Demoing Charges");
+            options.put("send_sms_hash",true);
+            options.put("allow_rotation", true);
+            //You can omit the image option to fetch the image from dashboard
+            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
+            options.put("currency", "INR");
+            options.put("amount", finalAmount+"");
+
+            JSONObject preFill = new JSONObject();
+            preFill.put("email", "test@razorpay.com");
+            preFill.put("contact", "9876543210");
+
+            options.put("prefill", preFill);
+
+            checkout.open(activity, options);
+        } catch (Exception e) {
+            Toast.makeText(activity, "Error in payment: " + e.getMessage(), Toast.LENGTH_SHORT)
+                    .show();
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        Toast.makeText(this, s+"success", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(this, s+"fail", Toast.LENGTH_SHORT).show();
+
     }
 }

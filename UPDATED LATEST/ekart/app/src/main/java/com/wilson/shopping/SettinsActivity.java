@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.wilson.shopping.Prevalent.Prevalent;
 import com.google.android.gms.tasks.Continuation;
@@ -35,7 +36,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SettinsActivity extends AppCompatActivity {
     private CircleImageView profileImageView;
     private EditText fullNameEditText, userPhoneEditText, addressEditText;
-    private TextView profileChangeTextBtn,  closeTextBtn, saveTextButton;
+    private TextView profileChangeTextBtn,  closeTextBtn;
+    private ConstraintLayout saveTextButton;
 
     private Uri imageUri;
     private String myUrl = "";
@@ -55,7 +57,7 @@ public class SettinsActivity extends AppCompatActivity {
         addressEditText = (EditText) findViewById(R.id.settings_address);
         profileChangeTextBtn = (TextView) findViewById(R.id.profile_image_change_btn);
         closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
-        saveTextButton = (TextView) findViewById(R.id.check_orders_btn);
+        saveTextButton = (ConstraintLayout) findViewById(R.id.check_orders_btn);
 
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
 
