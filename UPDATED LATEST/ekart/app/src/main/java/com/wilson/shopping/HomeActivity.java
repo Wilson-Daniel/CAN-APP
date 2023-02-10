@@ -86,6 +86,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStart() {
         super.onStart();
+
+//        FirebaseUser user = mAuth.getCurrentUser();
+//        if(user == null){
+//            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+//        }
+
         FirebaseRecyclerOptions<Products> options =
                 new FirebaseRecyclerOptions.Builder<Products>()
                         .setQuery(ProductsRef, Products.class)
