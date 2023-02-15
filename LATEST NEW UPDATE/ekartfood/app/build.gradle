@@ -1,19 +1,13 @@
 plugins {
     id 'com.android.application'
 }
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
-}
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.wilson.shopping"
+        applicationId "com.dhruva.shopping"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -61,7 +55,7 @@ dependencies {
     implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-
+  
     implementation 'androidx.navigation:navigation-fragment:2.3.2'
     implementation 'androidx.navigation:navigation-ui:2.3.2'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
