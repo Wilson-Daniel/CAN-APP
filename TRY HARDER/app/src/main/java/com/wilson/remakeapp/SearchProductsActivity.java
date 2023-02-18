@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +22,7 @@ import com.wilson.remakeapp.Model.Products;
 import com.wilson.remakeapp.ViewHolder.ProductViewHolder;
 
 public class SearchProductsActivity extends AppCompatActivity {
-    private Button searchBtn;
+    private ImageView searchBtn;
     private EditText inputText;
     private RecyclerView searchList;
     private String searchInput;
@@ -61,7 +61,7 @@ public class SearchProductsActivity extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
                         holder.txtProductName.setText(model.getPname());
                         holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText("Price = " + model.getPrice() + "Rs.");
+                        holder.txtProductPrice.setText("Rs." + model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.imageView);
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override

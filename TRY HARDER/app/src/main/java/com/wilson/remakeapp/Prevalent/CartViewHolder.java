@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.wils.shopping.Interface.ItemClickListner;
-import com.wils.shopping.R;
+import com.wilson.remakeapp.Interface.ItemClickListner;
+import com.wilson.remakeapp.R;
 
 public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView txtProductName,txtProductPrice,txtProductQuantity;

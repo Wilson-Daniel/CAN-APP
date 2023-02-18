@@ -1,76 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0F8F1"
     tools:context=".ProductDetailsActivity">
+
     <ImageView
         android:id="@+id/product_image_details"
-        android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
         android:scaleType="centerCrop"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/product_name_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/product_image_details"
-        android:text="Product Name"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:id="@+id/product_description_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/product_name_details"
-        android:text="Product Description"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:id="@+id/product_price_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/product_description_details"
-        android:text="Product Price"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        />
-    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-        android:id="@+id/number_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="60dp"
-        app:textSize="16dp"
-        app:initialNumber="1"
-        app:finalNumber="10"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/product_price_details"
-        android:layout_marginTop="10dp"
-        >
+        android:layout_below="@+id/product_image_details"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/outfit_medium"
+        android:gravity="center"
+        android:text="Product Name"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_image_details" />
 
-    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
-
-    <Button
-        android:id="@+id/pd_add_to_cart_button"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/product_description_details"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:layout_margin="15dp"
-        android:layout_alignParentBottom="true"
-        android:text="Add to Cart"
-        android:textColor="@android:color/white"
-        android:textSize="18dp"
-        />
-</RelativeLayout>
+        android:layout_below="@+id/product_name_details"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/outfit_medium"
+        android:gravity="center"
+        android:text="Product Description"
+
+        android:textColor="#494F55"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_name_details" />
+
+    <TextView
+        android:id="@+id/product_price_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_description_details"
+        android:fontFamily="@font/outfit_medium"
+        android:gravity="center"
+        android:text="Product Price"
+        android:textColor="#272F40"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pd_add_to_cart_button"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/main_button_bg"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_price_details"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/wind" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/outfit_medium"
+            android:text="Add to Cart"
+            android:textColor="#333333"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Rs."
+        android:textColor="#272f40"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_description_details" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

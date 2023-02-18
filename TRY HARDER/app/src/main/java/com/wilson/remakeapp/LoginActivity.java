@@ -5,14 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,8 +26,7 @@ import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText InputPhoneNumber, InputPassword;
-    private ImageView logo;
-    private Button LoginButton;
+    private ConstraintLayout LoginButton;
     private ProgressDialog loadingBar;
     private TextView AdminLink, NotAdminLink;
     private String parentDbName = "Users";
@@ -37,8 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        logo = (ImageView) findViewById(R.id.login_applogo);
-        LoginButton = (Button) findViewById(R.id.login_btn);
+        LoginButton =  findViewById(R.id.login_btn);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         AdminLink = (TextView) findViewById(R.id.admin_panel_link);
@@ -52,29 +49,24 @@ public class LoginActivity extends AppCompatActivity {
                 LoginUser();
             }
         });
-        logo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         AdminLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                LoginButton.setText("Login Admin");
+//                LoginButton.setText("Login Admin");
                 AdminLink.setVisibility(View.INVISIBLE);
                 NotAdminLink.setVisibility(View.VISIBLE);
+
                 parentDbName = "Admins";
+                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                startActivity(intent);
             }
         });
         NotAdminLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                LoginButton.setText("Login");
                 AdminLink.setVisibility(View.VISIBLE);
                 NotAdminLink.setVisibility(View.INVISIBLE);
                 parentDbName = "Users";
@@ -162,5 +154,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 }

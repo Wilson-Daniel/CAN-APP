@@ -1,107 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0F8F1"
     tools:context=".SettinsActivity">
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar_settings"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/close_settings_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Close"
-                    android:textColor="@android:color/white"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:layout_alignParentStart="true"
-                    />
-
-                <TextView
-                    android:id="@+id/update_account_settings_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Update"
-                    android:textColor="@android:color/white"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:layout_marginRight="10dp"
-                    android:layout_alignParentEnd="true"
-                    />
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/settings_profile_image"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:src="@drawable/profile"
-        android:layout_below="@+id/app_bar_settings"
-        android:layout_marginTop="20dp"
+        android:layout_width="119dp"
+        android:layout_height="116dp"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="68dp"
+
+        android:src="@drawable/settings_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/close_settings_btn2" />
 
     <TextView
         android:id="@+id/profile_image_change_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Profile"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="4dp"
-        android:textColor="@android:color/black"
         android:layout_below="@+id/settings_profile_image"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Change Image"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/settings_profile_image"
+        app:layout_constraintStart_toStartOf="@+id/settings_profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/settings_profile_image" />
 
     <EditText
         android:id="@+id/settings_phone_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_below="@+id/profile_image_change_btn"
-        android:hint="Phone Number..."
-        android:layout_margin="15dp"
-        android:padding="10dp"
-        />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/login_email_pass_bag"
+        android:fontFamily="@font/outfit_medium"
+        android:hint="Enter phone no."
+        android:paddingLeft="10dp"
+        android:textColor="#272f40"
+        android:textColorHint="#828385"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_full_name" />
 
     <EditText
         android:id="@+id/settings_full_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_below="@+id/settings_phone_number"
-        android:hint="Full Name..."
-        android:layout_margin="15dp"
-        android:padding="10dp"
-        />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/login_email_pass_bag"
+        android:fontFamily="@font/outfit_medium"
+        android:hint="Enter name"
+        android:paddingLeft="15dp"
+        android:textColor="#272f40"
+        android:textColorHighlight="#272f40"
+        android:textColorHint="#828385"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image_change_btn" />
 
     <EditText
         android:id="@+id/settings_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_below="@+id/settings_full_name"
-        android:hint="Address..."
-        android:layout_margin="15dp"
-        android:padding="10dp"
-        />
-</RelativeLayout>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/login_email_pass_bag"
+        android:fontFamily="@font/outfit_medium"
+        android:hint="Enter year"
+        android:paddingLeft="10dp"
+        android:textColor="#272f40"
+        android:textColorHint="#828385"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_phone_number" />
+
+    <TextView
+        android:id="@+id/close_settings_btn"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Close"
+        android:textColor="#272f40"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/close_settings_btn2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/close_settings_btn2" />
+
+    <TextView
+        android:id="@+id/close_settings_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/outfit_medium"
+        android:text="Profile Settings"
+        android:textColor="#272f40"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/check_orders_btn"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:background="@drawable/main_button_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_address"
+        app:layout_constraintVertical_bias="0.56">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/outfit_medium"
+            android:gravity="center"
+            android:text="Update"
+            android:textColor="#151414"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintHorizontal_bias="0.779"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4"
+            app:srcCompat="@drawable/wind" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

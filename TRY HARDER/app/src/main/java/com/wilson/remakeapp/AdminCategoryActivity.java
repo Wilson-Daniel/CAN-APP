@@ -1,26 +1,26 @@
 package com.wilson.remakeapp;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class AdminCategoryActivity extends AppCompatActivity {
-    private ImageView tShirts, sportsTShirts, femaleDresses, sweathers;
-    private ImageView glasses, hatsCaps, walletsBagsPurses, shoes;
-    private ImageView headPhonesHandFree, Laptops, watches, mobilePhones;
-    private Button LogoutBtn, CheckOrdersBtn;
+    private ConstraintLayout tShirts, sportsTShirts, femaleDresses,glasses, hatsCaps, walletsBagsPurses,Laptops, headPhonesHandFree,LogoutBtn,CheckOrdersBtn;
+    private ImageView shoes,sweathers;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
 
-        LogoutBtn = (Button) findViewById(R.id.admin_logout_btn);
+        LogoutBtn = (ConstraintLayout) findViewById(R.id.admin_logout_btn);
         LogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,7 +30,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 finish();
             }
         });
-        CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
+        CheckOrdersBtn = (ConstraintLayout) findViewById(R.id.check_new_orders_btn_admin);
 
 
         CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
@@ -43,20 +43,17 @@ public class AdminCategoryActivity extends AppCompatActivity {
 
 
 
-        tShirts = (ImageView) findViewById(R.id.t_shirts);
-        sportsTShirts = (ImageView) findViewById(R.id.sports_t_shirts);
-        femaleDresses = (ImageView) findViewById(R.id.female_dresses);
-        sweathers = (ImageView) findViewById(R.id.sweathers);
+        tShirts = (ConstraintLayout) findViewById(R.id.t_shirts);
+        sportsTShirts = (ConstraintLayout) findViewById(R.id.sports_t_shirts);
+        femaleDresses = (ConstraintLayout) findViewById(R.id.female_dresses);
 
-        glasses = (ImageView) findViewById(R.id.glasses);
-        hatsCaps = (ImageView) findViewById(R.id.hats_caps);
-        walletsBagsPurses = (ImageView) findViewById(R.id.purses_bags_wallets);
-        shoes = (ImageView) findViewById(R.id.shoes);
 
-        headPhonesHandFree = (ImageView) findViewById(R.id.headphones_handfree);
-        Laptops = (ImageView) findViewById(R.id.laptop_pc);
-        watches = (ImageView) findViewById(R.id.watches);
-        mobilePhones = (ImageView) findViewById(R.id.mobilephones);
+        glasses = (ConstraintLayout) findViewById(R.id.glasses);
+        hatsCaps = (ConstraintLayout) findViewById(R.id.hats_caps);
+        walletsBagsPurses = (ConstraintLayout) findViewById(R.id.purses_bags_wallets);
+
+        headPhonesHandFree = (ConstraintLayout) findViewById(R.id.headphones_handfree);
+        Laptops = (ConstraintLayout) findViewById(R.id.laptop_pc);
 
 
         tShirts.setOnClickListener(new View.OnClickListener() {
@@ -88,17 +85,16 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        sweathers.setOnClickListener(new View.OnClickListener() {
+        hatsCaps.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Sweathers");
+                intent.putExtra("category", "Female Dresses");
                 startActivity(intent);
             }
         });
+
+
 
 
         glasses.setOnClickListener(new View.OnClickListener() {
@@ -112,15 +108,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         });
 
 
-        hatsCaps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Hats Caps");
-                startActivity(intent);
-            }
-        });
+
 
 
 
@@ -135,15 +123,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         });
 
 
-        shoes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Shoes");
-                startActivity(intent);
-            }
-        });
+
 
 
 
@@ -169,25 +149,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         });
 
 
-        watches.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Watches");
-                startActivity(intent);
-            }
-        });
 
 
-        mobilePhones.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Mobile Phones");
-                startActivity(intent);
-            }
-        });
     }
 }
