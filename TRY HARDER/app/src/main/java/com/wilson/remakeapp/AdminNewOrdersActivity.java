@@ -23,12 +23,13 @@ import com.wilson.remakeapp.Model.AdminOrders;
 
 public class AdminNewOrdersActivity extends AppCompatActivity {
     private RecyclerView ordersList;
-    private DatabaseReference ordersRef;
+    private DatabaseReference ordersRef,ordersRef2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_new_orders);
         ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+        ordersRef2 = FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin view");
         ordersList = findViewById(R.id.orders_list);
         ordersList.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -44,7 +45,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder> adapter =
                 new FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder, final int position, @NonNull final AdminOrders model) {
+                    protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder, int position, @NonNull final AdminOrders model) {
 
                         holder.userName.setText("Name: "+model.getName());
                         holder.userPhoneNumber.setText("Name: "+model.getPhone());
@@ -78,7 +79,9 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         if (i==0){
                                             String uID = getRef(position).getKey();
+                                            String Ui = getRef(position).getKey();
                                             RemoverOrder(uID);
+                                            RemoveAdminList(Ui);
 
                                         }
                                         else {
@@ -123,5 +126,9 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
     }
     private void RemoverOrder(String uID) {
         ordersRef.child(uID).removeValue();
+//        ordersRef.child(uID).child("Pro")
+    }
+    private void RemoveAdminList(String Ui){
+        ordersRef2.child(Ui).removeValue();
     }
 }

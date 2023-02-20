@@ -2,7 +2,9 @@ package com.wilson.remakeapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.wilson.remakeapp.Model.Cart;
+import com.wilson.remakeapp.Prevalent.CartViewHolder;
+import com.wilson.remakeapp.Prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,9 +30,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.wilson.remakeapp.Model.Cart;
-import com.wilson.remakeapp.Prevalent.CartViewHolder;
-import com.wilson.remakeapp.Prevalent.Prevalent;
 
 public class CartActivity extends AppCompatActivity{
     private RecyclerView recyclerView;

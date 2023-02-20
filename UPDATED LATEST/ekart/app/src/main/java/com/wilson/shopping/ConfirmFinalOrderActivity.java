@@ -76,7 +76,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity  {
 //                }
                 //Toast.makeText(ConfirmFinalOrderActivity.this, "Please enter all the details..", Toast.LENGTH_SHORT).show();
                 //makePayment(amount, upi, name, desc, transcId);
-                //PayUsingUpi(name,upi,amount,desc,transcId,transcId+"78");
+                PayUsingUpi(name,upi,amount,desc,transcId,transcId+"78");
                 //PaymentNow(totalAmount);
             }
         });

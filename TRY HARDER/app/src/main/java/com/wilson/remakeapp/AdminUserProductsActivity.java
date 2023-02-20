@@ -1,39 +1,50 @@
 package com.wilson.remakeapp;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.wilson.remakeapp.Model.Cart;
+import com.wilson.remakeapp.Prevalent.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.wilson.remakeapp.Model.Cart;
-import com.wilson.remakeapp.Prevalent.CartViewHolder;
 
 public class AdminUserProductsActivity extends AppCompatActivity {
     private RecyclerView productsList;
+    private ImageView back;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference cartListRef;
     private String userID = "";
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_user_products);
+        back = (ImageView) findViewById(R.id.product_back);
         userID = getIntent().getStringExtra("uid");
         productsList = findViewById(R.id.products_list);
         productsList.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         productsList.setLayoutManager(layoutManager);
         cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin view").child(userID).child("Products");
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -63,4 +74,5 @@ public class AdminUserProductsActivity extends AppCompatActivity {
         productsList.setAdapter(adapter);
         adapter.startListening();
     }
+
 }

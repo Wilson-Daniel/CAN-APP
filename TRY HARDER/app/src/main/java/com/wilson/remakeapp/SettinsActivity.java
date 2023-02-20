@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.wilson.remakeapp.Prevalent.Prevalent;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,8 +27,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
-//import com.theartofdev.edmodo.cropper.CropImage;
-import com.wilson.remakeapp.Prevalent.Prevalent;
+
 
 import java.util.HashMap;
 
@@ -115,12 +115,12 @@ public class SettinsActivity extends AppCompatActivity {
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode==RESULT_OK  &&  data!=null)
+        if ( resultCode==RESULT_OK  &&  data!=null)
         {
 //            CropImage.ActivityResult result = CropImage.getActivityResult(data);
 //            imageUri = result.getUri();
 
-            profileImageView.setImageURI(imageUri);
+            //profileImageView.setImageURI(imageUri);
         }
         else
         {

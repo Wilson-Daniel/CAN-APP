@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView=findViewById(R.id.nav_view);
         toolbar=findViewById(R.id.toolbar);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        androidx.appcompat.widget.Toolbar toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
 
