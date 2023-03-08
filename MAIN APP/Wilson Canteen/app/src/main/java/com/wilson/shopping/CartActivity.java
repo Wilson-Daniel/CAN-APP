@@ -51,7 +51,7 @@ public class CartActivity extends AppCompatActivity{
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this,ConfirmFinalOrderActivity.class);
+                Intent intent = new Intent(CartActivity.this,PaytmActivity.class);
                 intent.putExtra("Total Price", String.valueOf(overTotalPrice));
                 startActivity(intent);
                 finish();
