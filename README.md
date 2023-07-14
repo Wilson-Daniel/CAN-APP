@@ -2,7 +2,7 @@
 
 # Food Ordering Android Application
 
-This is an Android application for ordering food from a restaurant. Users can browse through the menu, add items to their cart, and place orders. The application is built using Java and Android Studio.
+This is an Android application for ordering food from a restaurant. Users can browse through the menu, add items to their cart, and place orders. The application is built using Java and Android Studio. 
 
 
 ## Features
